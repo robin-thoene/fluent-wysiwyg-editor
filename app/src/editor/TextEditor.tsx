@@ -69,8 +69,8 @@ export const TextEditor: FunctionComponent<ITextEditor> = (props) => {
         props.initialContent && props.contentType === 'markdown'
             ? getEditorStateFromMarkdown(props.initialContent)
             : props.initialContent && props.contentType === 'html'
-                ? getEditorStateFromHtml(props.initialContent)
-                : EditorState.createEmpty()
+            ? getEditorStateFromHtml(props.initialContent)
+            : EditorState.createEmpty(),
     );
 
     /** The currently selected heading type. */
@@ -170,7 +170,7 @@ export const TextEditor: FunctionComponent<ITextEditor> = (props) => {
             }
             return 'not-handled';
         },
-        [editorState]
+        [editorState],
     );
 
     /**
@@ -196,7 +196,7 @@ export const TextEditor: FunctionComponent<ITextEditor> = (props) => {
         (event: KeyboardEvent) => {
             setEditorState(RichUtils.onTab(event, editorState, maxIntend));
         },
-        [editorState]
+        [editorState],
     );
 
     /**
@@ -299,7 +299,6 @@ export const TextEditor: FunctionComponent<ITextEditor> = (props) => {
 
     return (
         <EditorContainer palette={theme.palette}>
-            {/* @ts-expect-error: Ignore no children prop error. */}
             <Dialog hidden={!isUrlInputVisible} title="Insert Link">
                 <TextField
                     hidden={!isUrlInputVisible}
@@ -318,7 +317,6 @@ export const TextEditor: FunctionComponent<ITextEditor> = (props) => {
                         }
                     }}
                 />
-                {/* @ts-expect-error: Ignore no children prop error. */}
                 <DialogFooter>
                     <PrimaryButton
                         text="Add Link"
@@ -355,7 +353,13 @@ export const TextEditor: FunctionComponent<ITextEditor> = (props) => {
                     >
                         <IconButton
                             aria-describedby={boldTooltipId}
-                            styles={{ root: { backgroundColor: isBoldActive ? theme.palette.neutralQuaternary : 'unset', marginRight: '5px', color: theme.palette.black } }}
+                            styles={{
+                                root: {
+                                    backgroundColor: isBoldActive ? theme.palette.neutralQuaternary : 'unset',
+                                    marginRight: '5px',
+                                    color: theme.palette.black,
+                                },
+                            }}
                             iconProps={{ iconName: 'Bold' }}
                             onMouseDown={(event) => {
                                 event.preventDefault();
@@ -373,7 +377,13 @@ export const TextEditor: FunctionComponent<ITextEditor> = (props) => {
                         }
                     >
                         <IconButton
-                            styles={{ root: { backgroundColor: isItalicActive ? theme.palette.neutralQuaternary : 'unset', marginRight: '5px', color: theme.palette.black } }}
+                            styles={{
+                                root: {
+                                    backgroundColor: isItalicActive ? theme.palette.neutralQuaternary : 'unset',
+                                    marginRight: '5px',
+                                    color: theme.palette.black,
+                                },
+                            }}
                             iconProps={{ iconName: 'Italic' }}
                             onMouseDown={(event) => {
                                 event.preventDefault();
@@ -391,7 +401,13 @@ export const TextEditor: FunctionComponent<ITextEditor> = (props) => {
                         }
                     >
                         <IconButton
-                            styles={{ root: { backgroundColor: isUnderlineActive ? theme.palette.neutralQuaternary : 'unset', marginRight: '5px', color: theme.palette.black } }}
+                            styles={{
+                                root: {
+                                    backgroundColor: isUnderlineActive ? theme.palette.neutralQuaternary : 'unset',
+                                    marginRight: '5px',
+                                    color: theme.palette.black,
+                                },
+                            }}
                             iconProps={{ iconName: 'Underline' }}
                             onMouseDown={(event) => {
                                 event.preventDefault();
@@ -400,7 +416,13 @@ export const TextEditor: FunctionComponent<ITextEditor> = (props) => {
                         />
                     </TooltipHost>
                     <IconButton
-                        styles={{ root: { backgroundColor: isStrikeThroughActive ? theme.palette.neutralQuaternary : 'unset', marginRight: '5px', color: theme.palette.black } }}
+                        styles={{
+                            root: {
+                                backgroundColor: isStrikeThroughActive ? theme.palette.neutralQuaternary : 'unset',
+                                marginRight: '5px',
+                                color: theme.palette.black,
+                            },
+                        }}
                         iconProps={{ iconName: 'Strikethrough' }}
                         onMouseDown={(event) => {
                             event.preventDefault();
@@ -410,7 +432,13 @@ export const TextEditor: FunctionComponent<ITextEditor> = (props) => {
                 </ControlSection>
                 <ControlSection>
                     <IconButton
-                        styles={{ root: { backgroundColor: isUnorderedListActive ? theme.palette.neutralQuaternary : 'unset', marginRight: '5px', color: theme.palette.black } }}
+                        styles={{
+                            root: {
+                                backgroundColor: isUnorderedListActive ? theme.palette.neutralQuaternary : 'unset',
+                                marginRight: '5px',
+                                color: theme.palette.black,
+                            },
+                        }}
                         iconProps={{ iconName: 'BulletedList' }}
                         onMouseDown={(event) => {
                             event.preventDefault();
@@ -418,7 +446,13 @@ export const TextEditor: FunctionComponent<ITextEditor> = (props) => {
                         }}
                     />
                     <IconButton
-                        styles={{ root: { backgroundColor: isOrderedListActive ? theme.palette.neutralQuaternary : 'unset', marginRight: '5px', color: theme.palette.black } }}
+                        styles={{
+                            root: {
+                                backgroundColor: isOrderedListActive ? theme.palette.neutralQuaternary : 'unset',
+                                marginRight: '5px',
+                                color: theme.palette.black,
+                            },
+                        }}
                         iconProps={{ iconName: 'NumberedList' }}
                         onMouseDown={(event) => {
                             event.preventDefault();
@@ -426,7 +460,9 @@ export const TextEditor: FunctionComponent<ITextEditor> = (props) => {
                         }}
                     />
                     <IconButton
-                        styles={{ root: { marginRight: '5px', color: theme.palette.black } }}
+                        styles={{
+                            root: { marginRight: '5px', color: theme.palette.black },
+                        }}
                         iconProps={{ iconName: 'DecreaseIndentLegacy' }}
                         onMouseDown={(event) => {
                             event.preventDefault();
@@ -436,7 +472,9 @@ export const TextEditor: FunctionComponent<ITextEditor> = (props) => {
                         }}
                     />
                     <IconButton
-                        styles={{ root: { marginRight: '5px', color: theme.palette.black } }}
+                        styles={{
+                            root: { marginRight: '5px', color: theme.palette.black },
+                        }}
                         iconProps={{ iconName: 'IncreaseIndentLegacy' }}
                         onMouseDown={(event) => {
                             event.preventDefault();
@@ -448,7 +486,13 @@ export const TextEditor: FunctionComponent<ITextEditor> = (props) => {
                 </ControlSection>
                 <ControlSection>
                     <IconButton
-                        styles={{ root: { backgroundColor: isBlockquoteActive ? theme.palette.neutralQuaternary : 'unset', marginRight: '5px', color: theme.palette.black } }}
+                        styles={{
+                            root: {
+                                backgroundColor: isBlockquoteActive ? theme.palette.neutralQuaternary : 'unset',
+                                marginRight: '5px',
+                                color: theme.palette.black,
+                            },
+                        }}
                         iconProps={{ iconName: 'RightDoubleQuote' }}
                         onMouseDown={(event) => {
                             event.preventDefault();
@@ -456,7 +500,13 @@ export const TextEditor: FunctionComponent<ITextEditor> = (props) => {
                         }}
                     />
                     <IconButton
-                        styles={{ root: { backgroundColor: isCodeBlockActive ? theme.palette.neutralQuaternary : 'unset', marginRight: '5px', color: theme.palette.black } }}
+                        styles={{
+                            root: {
+                                backgroundColor: isCodeBlockActive ? theme.palette.neutralQuaternary : 'unset',
+                                marginRight: '5px',
+                                color: theme.palette.black,
+                            },
+                        }}
                         iconProps={{ iconName: 'Code' }}
                         onMouseDown={(event) => {
                             event.preventDefault();
@@ -466,7 +516,9 @@ export const TextEditor: FunctionComponent<ITextEditor> = (props) => {
                 </ControlSection>
                 <ControlSection>
                     <IconButton
-                        styles={{ root: { marginRight: '5px', color: theme.palette.black } }}
+                        styles={{
+                            root: { marginRight: '5px', color: theme.palette.black },
+                        }}
                         iconProps={{ iconName: 'AddLink' }}
                         onMouseDown={(event) => {
                             event.preventDefault();
@@ -474,7 +526,9 @@ export const TextEditor: FunctionComponent<ITextEditor> = (props) => {
                         }}
                     />
                     <IconButton
-                        styles={{ root: { marginRight: '5px', color: theme.palette.black } }}
+                        styles={{
+                            root: { marginRight: '5px', color: theme.palette.black },
+                        }}
                         iconProps={{ iconName: 'RemoveLink' }}
                         onMouseDown={(event) => {
                             event.preventDefault();
@@ -493,7 +547,9 @@ export const TextEditor: FunctionComponent<ITextEditor> = (props) => {
                         }
                     >
                         <IconButton
-                            styles={{ root: { marginRight: '5px', color: theme.palette.black } }}
+                            styles={{
+                                root: { marginRight: '5px', color: theme.palette.black },
+                            }}
                             iconProps={{ iconName: 'Undo' }}
                             onMouseDown={(event) => {
                                 event.preventDefault();
@@ -511,7 +567,9 @@ export const TextEditor: FunctionComponent<ITextEditor> = (props) => {
                         }
                     >
                         <IconButton
-                            styles={{ root: { marginRight: '5px', color: theme.palette.black } }}
+                            styles={{
+                                root: { marginRight: '5px', color: theme.palette.black },
+                            }}
                             iconProps={{ iconName: 'Redo' }}
                             onMouseDown={(event) => {
                                 event.preventDefault();
