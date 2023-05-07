@@ -23,7 +23,10 @@ export const removeLink = (editorState: EditorState, setEditorState: (editorStat
  */
 export const addLink = (editorState: EditorState, setEditorState: (editorState: EditorState) => void, url: string) => {
     const contentState = editorState.getCurrentContent();
-    const contentStateWithEntity = contentState.createEntity('LINK', 'MUTABLE', { url: url, target: '_blank' });
+    const contentStateWithEntity = contentState.createEntity('LINK', 'MUTABLE', {
+        url: url,
+        target: '_blank',
+    });
     const entityKey = contentStateWithEntity.getLastCreatedEntityKey();
     const selection = editorState.getSelection();
     let newState = RichUtils.toggleLink(editorState, selection, entityKey);
