@@ -101,7 +101,6 @@ export const DefaultFontStyle: IRawStyle = {
 
 /**
  * Default styles for fluent ui components.
- *
  * @param {IPalette} palette The theme color palette.
  * @returns {ComponentsStyles} The default component styles.
  */

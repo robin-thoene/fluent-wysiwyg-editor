@@ -54,7 +54,6 @@ export interface ITextEditor {
 
 /**
  * Custom WYSIWYG editor based on draft-js.
- *
  * @param {ITextEditor} props The properties of the WYSIWYG editor.
  * @returns {FunctionComponent} The WYSIWYG editor component.
  */
@@ -139,7 +138,6 @@ export const TextEditor: FunctionComponent<ITextEditor> = (props) => {
 
     /**
      * Handle keyboard shortcuts in the draft-js editor.
-     *
      * @param {DraftEditorCommand} command The command to execute.
      * @param {EditorState} editorState The editor state to modify.
      * @returns {DraftHandleValue} The draft handle value.
@@ -158,7 +156,6 @@ export const TextEditor: FunctionComponent<ITextEditor> = (props) => {
 
     /**
      * Handle what happens when the user presses the return key.
-     *
      * @param {KeyboardEvent} event The occurred keyboard event.
      * @returns {DraftHandleValue} The draft handle value.
      */
@@ -175,7 +172,6 @@ export const TextEditor: FunctionComponent<ITextEditor> = (props) => {
 
     /**
      * Function to apply custom block styles.
-     *
      * @param {ContentBlock} contentBlock The content block to format.
      * @returns {string} The CSS classes to apply.
      */
@@ -189,7 +185,6 @@ export const TextEditor: FunctionComponent<ITextEditor> = (props) => {
 
     /**
      * Handle what happens when the user press tab.
-     *
      * @param {KeyboardEvent} event The occurred keyboard event.
      */
     const onTab = useCallback(
@@ -234,7 +229,6 @@ export const TextEditor: FunctionComponent<ITextEditor> = (props) => {
     /**
      * On change handler for the heading dropdown.
      * Applies the selected heading type to the current editor block.
-     *
      * @param {FormEvent<HTMLDivElement>} _ The occurred form event.
      * @param {IDropdownOption | undefined} option The selected dropdown option.
      */

@@ -3,7 +3,6 @@ import { createEditorStateFromContent } from './Parser';
 
 /**
  * Remove all links in the current selection.
- *
  * @param {EditorState} editorState The current editor state to modify.
  * @param {(editorState: EditorState) => void} setEditorState The callback to update the editor state.
  */
@@ -16,7 +15,6 @@ export const removeLink = (editorState: EditorState, setEditorState: (editorStat
 
 /**
  * Add a link to the current selection.
- *
  * @param {EditorState} editorState The current editor state to modify.
  * @param {(editorState: EditorState) => void} setEditorState The callback to update the editor state.
  * @param {string} url The url to use to create the link.
@@ -39,7 +37,6 @@ export const addLink = (editorState: EditorState, setEditorState: (editorState: 
 
 /**
  * General function to apply an inline style to the current draft-js editor state.
- *
  * @param {EditorState} editorState The current editor state to modify.
  * @param {(editorState: EditorState) => void} setEditorState The callback to update the editor state.
  * @param {string} inlineStyle The style name to apply.
@@ -58,7 +55,6 @@ export const applyInlineStyle = (editorState: EditorState, setEditorState: (edit
 
 /**
  * General function to apply a block style to the current draft-js editor state.
- *
  * @param {EditorState} editorState The current editor state to modify.
  * @param {(editorState: EditorState) => void} setEditorState The callback to update the editor state.
  * @param {string} blockStyle The style to apply to the current editor block
